@@ -1,0 +1,40 @@
+[versions]
+android-plugin = "7.2.0-alpha03"
+lifecycle = "2.4.0"
+compose = "1.1.0-beta01"
+compose-material3 = "1.0.0-alpha01"
+
+[libraries]
+androidx-core = "androidx.core:core-ktx:1.7.0"
+androidx-lifecycle-runtime = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle" }
+androidx-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+
+compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
+compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
+compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
+compose-animation = { module = "androidx.compose.animation:animation", version.ref = "compose" }
+compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "compose-material3" }
+androidx-activity-compose = "androidx.activity:activity-compose:1.4.0"
+androidx-lifecycle-viewmodel-compose = "androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha07"
+
+compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
+compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "compose" }
+
+compose-ui-test = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "compose" }
+
+junit = "junit:junit:4.13.2"
+
+androidx-test-junit = "androidx.test.ext:junit-ktx:1.1.3"
+
+[bundles]
+androidx = ["androidx-core", "androidx-lifecycle-runtime", "androidx-lifecycle-viewmodel"]
+compose = ["compose-ui", "compose-foundation", "compose-ui-tooling-preview", "compose-animation", "compose-material3", "androidx-activity-compose", "androidx-lifecycle-viewmodel-compose"]
+compose-debug = ["compose-ui-tooling", "compose-ui-test-manifest"]
+compose-android-test = ["compose-ui-test"]
+test = ["junit"]
+android-test = ["androidx-test-junit"]
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "android-plugin" }
+android-library = { id = "com.android.library", version.ref = "android-plugin" }
+kotlin = { id = "org.jetbrains.kotlin.android", version = "1.5.31" }
