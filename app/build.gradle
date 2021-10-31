@@ -6,12 +6,12 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk buildConfig.compileSdk
 
     defaultConfig {
         applicationId "com.rmakiyama.bokuju"
-        minSdk 23
-        targetSdk 31
+        minSdk buildConfig.minSdk
+        targetSdk buildConfig.targetSdk
         versionCode 1
         versionName "1.0"
 
