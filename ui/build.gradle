@@ -1,5 +1,5 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'dagger.hilt.android.plugin'
     id 'kotlin-kapt'
@@ -9,23 +9,7 @@ android {
     compileSdk buildConfig.compileSdk
 
     defaultConfig {
-        applicationId "com.rmakiyama.bokuju"
         minSdk buildConfig.minSdk
-        targetSdk buildConfig.targetSdk
-        versionCode 1
-        versionName "1.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary true
-        }
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -40,18 +24,9 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion buildConfig.compose
     }
-    packagingOptions {
-        resources {
-            excludes += '/META-INF/{AL2.0,LGPL2.1}'
-        }
-    }
 }
 
 dependencies {
-    implementation project(':ui')
-    implementation project(':usecase')
-    implementation project(':model')
-
     implementation libs.bundles.androidx
     implementation libs.bundles.compose
 
