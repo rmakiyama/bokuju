@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -19,6 +21,12 @@ android {
 }
 
 dependencies {
+    implementation project(':data:access')
+    implementation project(':model')
+
+    implementation libs.bundles.hilt
+    kapt libs.bundles.hilt.compiler
+
     implementation libs.timber
 
     testImplementation libs.bundles.test

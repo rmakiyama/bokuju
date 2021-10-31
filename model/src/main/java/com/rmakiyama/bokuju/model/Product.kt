@@ -1,4 +1,9 @@
 package com.rmakiyama.bokuju.model
 
-class Product {
-}
+@JvmInline
+value class ProductId(val id: Int)
+
+data class Product(
+    val id: ProductId,
+    val title: String,
+)
