@@ -16,6 +16,8 @@ rootProject.name = "bokuju"
 include ':app'
 include ':ui'
 include ':usecase'
+include ':data:access'
+include ':data:infra'
 include ':model'
 
 enableFeaturePreview("VERSION_CATALOGS")
