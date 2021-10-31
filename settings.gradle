@@ -15,5 +15,6 @@ dependencyResolutionManagement {
 rootProject.name = "bokuju"
 include ':app'
 include ':usecase'
+include ':model'
 
 enableFeaturePreview("VERSION_CATALOGS")
