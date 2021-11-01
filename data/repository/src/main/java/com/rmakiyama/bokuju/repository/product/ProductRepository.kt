@@ -1,4 +1,4 @@
-package com.rmakiyama.infra.product
+package com.rmakiyama.bokuju.repository.product
 
 import com.rmakiyama.bokuju.data.access.ProductRepository as IProductRepository
 import com.rmakiyama.bokuju.model.Product

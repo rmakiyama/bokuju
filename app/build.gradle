@@ -51,7 +51,7 @@ dependencies {
     implementation project(':ui')
     implementation project(':usecase')
     implementation project(':data:access')
-    implementation project(':data:infra')
+    implementation project(':data:repository')
     implementation project(':model')
 
     implementation libs.bundles.androidx

@@ -1,6 +1,6 @@
-package com.rmakiyama.infra.di
+package com.rmakiyama.bokuju.repository.di
 
-import com.rmakiyama.infra.product.ProductRepository
+import com.rmakiyama.bokuju.repository.product.ProductRepository
 import com.rmakiyama.bokuju.data.access.ProductRepository as IProductRepository
 import dagger.Binds
 import dagger.Module

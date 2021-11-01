@@ -17,7 +17,7 @@ include ':app'
 include ':ui'
 include ':usecase'
 include ':data:access'
-include ':data:infra'
+include ':data:repository'
 include ':model'
 
 enableFeaturePreview("VERSION_CATALOGS")
