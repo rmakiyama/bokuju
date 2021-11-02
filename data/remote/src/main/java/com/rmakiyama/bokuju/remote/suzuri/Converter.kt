@@ -9,6 +9,9 @@ internal fun GetProductListResponse.convert(): List<Product> {
         Product(
             id = ProductId(product.id),
             title = product.title,
+            imageUrl = product.sampleImageUrl,
+            imageUrls = product.sampleImageUrls,
+            priceWithTax = product.priceWithTax,
         )
     }
 }
