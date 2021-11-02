@@ -4,10 +4,11 @@ buildscript {
             'minSdk'    : 23,
             'targetSdk' : 31,
 
-            'compose': "1.1.0-beta01",
+            'compose'   : "1.1.0-beta01",
     ]
     dependencies {
         classpath libs.hilt.android.gradlePlugin
+        classpath libs.kotlinx.serialization.gradlePlugin
     }
 }
 

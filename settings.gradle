@@ -18,6 +18,7 @@ include ':ui'
 include ':usecase'
 include ':data:access'
 include ':data:repository'
+include ':data:remote'
 include ':model'
 
 enableFeaturePreview("VERSION_CATALOGS")

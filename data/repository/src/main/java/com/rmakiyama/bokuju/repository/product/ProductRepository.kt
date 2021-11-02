@@ -2,17 +2,13 @@ package com.rmakiyama.bokuju.repository.product
 
 import com.rmakiyama.bokuju.data.access.ProductRepository as IProductRepository
 import com.rmakiyama.bokuju.model.Product
-import com.rmakiyama.bokuju.model.ProductId
+import com.rmakiyama.bokuju.remote.suzuri.SuzuriApi
 import javax.inject.Inject
 
-class ProductRepository @Inject constructor() : IProductRepository {
-    override fun getProductList(): List<Product> {
-        // fixme
-        return listOf(
-            Product(ProductId(1), "title 1"),
-            Product(ProductId(2), "title 2"),
-            Product(ProductId(3), "title 3"),
-            Product(ProductId(4), "title 4"),
-        )
+internal class ProductRepository @Inject constructor(
+    private val suzuriApi: SuzuriApi,
+) : IProductRepository {
+    override suspend fun getProductList(): List<Product> {
+        return suzuriApi.getProductList()
     }
 }

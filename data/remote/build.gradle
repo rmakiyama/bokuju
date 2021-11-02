@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'org.jetbrains.kotlin.plugin.serialization'
     id 'dagger.hilt.android.plugin'
     id 'kotlin-kapt'
 }
@@ -10,6 +11,12 @@ android {
 
     defaultConfig {
         minSdk buildConfig.minSdk
+
+        // local property
+        def properties = new Properties()
+        properties.load(project.rootProject.file('local.properties').newDataInputStream())
+        def SUZURI_ACCESS_TOKEN = properties.getProperty("suzuri_access_token")
+        buildConfigField("String", "SUZURI_ACCESS_TOKEN", "\"${SUZURI_ACCESS_TOKEN}\"")
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -21,9 +28,10 @@ android {
 }
 
 dependencies {
-    implementation project(':data:access')
-    implementation project(':data:remote')
     implementation project(':model')
+
+    implementation libs.kotlinx.serialization
+    implementation libs.bundles.ktor.client
 
     implementation libs.bundles.hilt
     kapt libs.bundles.hilt.compiler

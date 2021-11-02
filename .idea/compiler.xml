@@ -3,6 +3,7 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.7">
       <module name="bokuju.app" target="11" />
+      <module name="bokuju.data.remote" target="11" />
       <module name="bokuju.data.repository" target="11" />
       <module name="bokuju.ui" target="11" />
       <module name="bokuju.usecase" target="11" />

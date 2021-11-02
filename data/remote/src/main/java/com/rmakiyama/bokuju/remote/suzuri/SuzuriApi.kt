@@ -1,7 +1,7 @@
-package com.rmakiyama.bokuju.data.access
+package com.rmakiyama.bokuju.remote.suzuri
 
 import com.rmakiyama.bokuju.model.Product
 
-interface ProductRepository {
+interface SuzuriApi {
     suspend fun getProductList(): List<Product>
 }

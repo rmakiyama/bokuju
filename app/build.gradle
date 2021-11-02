@@ -52,10 +52,14 @@ dependencies {
     implementation project(':usecase')
     implementation project(':data:access')
     implementation project(':data:repository')
+    implementation project(':data:remote')
     implementation project(':model')
 
     implementation libs.bundles.androidx
     implementation libs.bundles.compose
+
+    implementation libs.kotlinx.serialization
+    implementation libs.bundles.ktor.client
 
     implementation libs.bundles.hilt
     kapt libs.bundles.hilt.compiler
