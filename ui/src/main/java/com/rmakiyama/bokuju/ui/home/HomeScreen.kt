@@ -1,9 +1,15 @@
 package com.rmakiyama.bokuju.ui.home
 
-import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.GridCells
+import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -11,12 +17,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.google.accompanist.insets.statusBarsPadding
+import com.google.accompanist.insets.LocalWindowInsets
+import com.google.accompanist.insets.rememberInsetsPaddingValues
 import com.rmakiyama.bokuju.model.Product
 import com.rmakiyama.bokuju.model.ProductId
+import com.rmakiyama.bokuju.ui.component.NetworkImage
 
 @Composable
 fun HomeScreen() {
@@ -38,15 +47,21 @@ fun HomeScreen(
     }
 }
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun ProductList(
     productList: List<Product>,
 ) {
-    LazyColumn(
-        modifier = Modifier.statusBarsPadding(),
-        contentPadding = PaddingValues(16.dp)
+    LazyVerticalGrid(
+        modifier = Modifier.padding(horizontal = 16.dp),
+        contentPadding = rememberInsetsPaddingValues(
+            insets = LocalWindowInsets.current.systemBars,
+        ),
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        cells = GridCells.Adaptive(minSize = 112.dp),
     ) {
-        items(productList, key = { product -> product.id }) { product ->
+        items(productList) { product ->
             ProductListItem(product)
         }
     }
@@ -56,7 +71,20 @@ fun ProductList(
 fun ProductListItem(
     product: Product,
 ) {
-    Text(text = product.title)
+    Column {
+        NetworkImage(
+            url = product.imageUrl,
+            modifier = Modifier
+                .fillMaxSize()
+                .aspectRatio(1f)
+                .clip(RoundedCornerShape(12.dp)),
+            contentDescription = product.title,
+        )
+        Text(
+            text = product.title,
+            style = MaterialTheme.typography.labelMedium,
+        )
+    }
 }
 
 @Preview
