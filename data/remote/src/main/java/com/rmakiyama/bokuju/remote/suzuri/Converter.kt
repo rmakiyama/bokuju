@@ -4,7 +4,7 @@ import com.rmakiyama.bokuju.model.Product
 import com.rmakiyama.bokuju.model.ProductId
 import com.rmakiyama.bokuju.remote.suzuri.response.GetProductListResponse
 
-fun GetProductListResponse.convert(): List<Product> {
+internal fun GetProductListResponse.convert(): List<Product> {
     return products.map { product ->
         Product(
             id = ProductId(product.id),

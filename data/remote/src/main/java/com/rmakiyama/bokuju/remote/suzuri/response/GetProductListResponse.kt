@@ -4,13 +4,13 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class GetProductListResponse(
+internal data class GetProductListResponse(
     @SerialName("products")
     val products: List<ProductResponse>,
 )
 
 @Serializable
-data class ProductResponse(
+internal data class ProductResponse(
     @SerialName("id")
     val id: Int,
     @SerialName("title")
