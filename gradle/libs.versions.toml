@@ -1,9 +1,9 @@
 [versions]
 android-plugin = "7.2.0-alpha03"
 lifecycle = "2.4.0"
-compose = "1.1.0-beta01"
+compose = "1.1.0-beta02"
 compose-material3 = "1.0.0-alpha01"
-accompanist = "0.21.1-beta"
+accompanist = "0.21.2-beta"
 coil = "1.4.0"
 hilt = "2.40"
 ktor = "1.6.4"
