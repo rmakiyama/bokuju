@@ -27,6 +27,7 @@ import com.rmakiyama.bokuju.model.Product
 import com.rmakiyama.bokuju.model.ProductId
 import com.rmakiyama.bokuju.ui.component.NetworkImage
 
+@ExperimentalFoundationApi
 @Composable
 fun HomeScreen() {
     val viewModel: HomeViewModel = hiltViewModel()
@@ -35,6 +36,7 @@ fun HomeScreen() {
     HomeScreen(productList)
 }
 
+@ExperimentalFoundationApi
 @Composable
 fun HomeScreen(
     productList: List<Product>,
@@ -47,7 +49,7 @@ fun HomeScreen(
     }
 }
 
-@OptIn(ExperimentalFoundationApi::class)
+@ExperimentalFoundationApi
 @Composable
 fun ProductList(
     productList: List<Product>,
@@ -89,6 +91,7 @@ fun ProductListItem(
 
 @Preview
 @Composable
+@ExperimentalFoundationApi
 fun PreviewHomeScreen() {
     val list = listOf(
         Product(ProductId(0), "title", "", emptyList(), 100)
