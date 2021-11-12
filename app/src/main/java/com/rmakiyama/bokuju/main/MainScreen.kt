@@ -4,6 +4,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -12,6 +13,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavDestination.Companion.hierarchy
@@ -33,16 +35,17 @@ internal fun MainScreen() {
         bottomBar = {
             BottomNavigation(navController)
         }
-    ) {
+    ) { paddingValues ->
         AppNavigation(
             navController = navController,
+            modifier = Modifier.padding(paddingValues),
         )
     }
 }
 
 @Composable
 private fun BottomNavigation(
-    navController: NavHostController
+    navController: NavHostController,
 ) {
     NavigationBar {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
